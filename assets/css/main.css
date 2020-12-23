@@ -1,3 +1,4 @@
 @import "./basics/basics.css";
 @import "./cmps/AppHeader.css";
 @import "../../apps/Mail/assets/css/EmailPreview.css";
+@import "../../apps/Keep/assets/css/KeepPreview.css";

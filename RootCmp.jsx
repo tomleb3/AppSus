@@ -1,6 +1,6 @@
 import { AppHeader } from "./cmps/AppHeader.jsx"
 import { BookApp } from "./apps/Books/BookApp.jsx"
-import { MailApp } from "./apps/Mail/MailApp.jsx"
+import { EmailApp } from "./apps/Mail/EmailApp.jsx"
 import { KeepApp } from "./apps/Keep/KeepApp.jsx"
 import { Home } from "./pages/Home.jsx"
 import { About } from "./pages/About.jsx"
@@ -14,7 +14,7 @@ export class AppSus extends React.Component {
                 <AppHeader />
                 <Switch>
                     <Route path="/keep-app" component={KeepApp} />
-                    <Route path="/mail-app" component={MailApp} />
+                    <Route path="/email-app" component={EmailApp} />
                     <Route path="/book-app" component={BookApp} />
                     <Route path="/about" component={About} />
                     <Route path="/" component={Home} />

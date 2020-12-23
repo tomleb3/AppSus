@@ -3,6 +3,11 @@
    background-color: rgb(105, 194, 54);
    display: flex;
    padding: 15px;
+   border-radius: 5px;
+}
+
+.keep-preview * {
+   margin: 5px;
 }
 
 .keep-preview img {
@@ -11,18 +16,53 @@
    object-fit: cover;
 }
 
+.keep-preview textarea {
+   height: 220px;
+}
 
-/* .keep-preview h1 {
-   display: block;
-} */
+.keep-preview div {
+   display: flex;
+   flex-grow: 1;
+   justify-content: center;
+}
 
+.keep-preview img {
+   margin: 0;
+}
 
-/* .keep-preview .enable {
-   background-color: inherit;
-   border: solid 1px ;
-} */
+.keep-preview div * {
+   width: 100%;
+}
 
-.keep-preview .disable {
+.keep-preview .todo-container {
+   display: flex;
+   flex-grow: 1;
+   align-items: center;
+   margin: 10px;
+}
+
+.keep-preview aside button {
+   margin-inline-end: 10px;
+}
+
+.keep-preview input:first-of-type {
+   font-size: 1.8rem;
+}
+
+.keep-preview .transparent {
    background-color: inherit;
    border: none;
+}
+
+.keep-preview .btn-container {
+   display: flex;
+   justify-content: space-around;
+}
+
+.transparent:focus {
+   background-color: rgba(255, 255, 255, 0.6);
+}
+
+.transparent::placeholder {
+   /* color: black; */
 }

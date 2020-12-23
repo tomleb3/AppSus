@@ -1,5 +1,6 @@
 import { KeepList } from "./cmps/KeepList.jsx"
 import { keepService } from "./services/keepService.js"
+// import { storageService } from "../../services/storageService.js";
 
 export class KeepApp extends React.Component {
 
@@ -11,12 +12,18 @@ export class KeepApp extends React.Component {
 
     }
 
+    loadNotes = () =>{
+        // const storageNotes = storageNotes.load(
+        // if (!servNotes.length)
+
+        // const servNotes = keepService.query()
+    }
+
     render() {
-        console.log(keepService.query());
         return (
             <article>
-                <input className="disable" placeholder="What's on your mind..."></input>
                 <KeepList notes={keepService.query()}/>
+                <button className="btn-plus" onClick={console.log('hi')}></button>
             </article>
         )
     }

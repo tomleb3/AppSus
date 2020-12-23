@@ -12,12 +12,19 @@ export class KeepPreview extends React.Component {
     dynamicNote = () => {
         switch (this.props.note.type) {
             case 'NoteTxt':
-                return <p>{this.props.note.info.txt}</p>
+                return <div>
+                    <textarea className="transparent" placeholder="What's on your mind...">{this.props.note.info.txt}</textarea>
+                </div>
             case 'NoteImg':
-                return <img src={this.props.note.info.url}></img>
+                return <div>
+                    <img src={this.props.note.info.url}></img>
+                </div>
             case 'NoteTodos':
                 return this.props.note.info.todos.map(todo => {
-                    return <h2 key={utilService.makeId()}>{todo.txt}</h2>
+                    return <aside className="todo-container">
+                        <button>X</button>
+                        <h2 key={utilService.makeId()}>{todo.txt}</h2>
+                    </aside>
                 })
             case 'NoteVideo':
                 return <LinearScale info={info} onAns={onAns} />
@@ -35,13 +42,16 @@ export class KeepPreview extends React.Component {
     render() {
         return (
             <article style={{ backgroundColor: this.props.note.style.bgc }} className="keep-preview">
-                <h1>{this.props.note.info.title}</h1>
+                {/* <h1>{this.props.note.info.title}</h1> */}
+                <input className="transparent" placeholder="Title.."></input>
                 {this.dynamicNote()}
-                {/* <h3>{this.props.note.body}</h3> */}
+                <section className="btn-container">
+                    <button>asd</button>
+                    <button>asd</button>
+                    <button>asd</button>
+                </section>
             </article>
         )
         {/* <Link to={`/email/${email.id}`}></Link> */ }
     }
-
 }
-

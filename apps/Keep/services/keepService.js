@@ -1,56 +1,91 @@
 import { storageService } from "../../../services/storageService.js";
 
 export const keepService = {
-   query
+   query,
+   addNote
 }
 
-var notes = [{
-   id: 789,
-   type: "NoteTxt",
-   isPinned: false,
-   info: {
-      title: "asd",
-      txt: "Fullstack Me Baby!"
-   },
-   style: {
-      bgc: "#686868"
-   }
-},
-{
-   id: 790,
-   type: "NoteImg",
-   isPinned: false,
-   info: {
-      url: "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg",
-      title: "Me playing Mi"
-   },
-   style: {
-      bgc: "#008888"
-   }
-},
-{
-   id: 791,
-   type: "NoteTodos",
-   isPinned: false,
-   info: {
-      title: "What to buy:",
-      todos: [
-         { txt: "Milk", createAt: null },
-         { txt: "Bread", createAt: 187111111 }
-      ]
-   },
-   style: {
-      bgc: "#d400d4"
-   }
-}
-];
+var notes
 
 const STORAGE_KEY = 'keepDB';
 
 function query() {
-   const _notes = storageService.load(STORAGE_KEY);
-   return (_notes) ? _notes : notes
+   return notes
 }
+
+function addNote() {
+   notes.unshift(createNote())
+   console.log(notes);
+}
+
+function createNote() {
+   return {
+      id: 749,
+      type: "",
+      isPinned: false,
+      info: {
+         title: "",
+         txt: ""
+      },
+      style: {
+         bgc: "#686868"
+      }
+   }
+}
+
+(() => {
+   const _notes = storageService.load(STORAGE_KEY);
+   if (_notes && _notes.length) notes = _notes
+   else notes = [{
+         id: 789,
+         type: "NoteTxt",
+         isPinned: false,
+         info: {
+            title: "asd",
+            txt: "Fullstack Me Baby!"
+         },
+         style: {
+            bgc: "#686868"
+         }
+      },
+      {
+         id: 790,
+         type: "NoteImg",
+         isPinned: false,
+         info: {
+            url: "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg",
+            title: "Me playing Mi"
+         },
+         style: {
+            bgc: "#008888"
+         }
+      },
+      {
+         id: 791,
+         type: "NoteTodos",
+         isPinned: false,
+         info: {
+            title: "What to buy:",
+            todos: [
+               { txt: "Milk", createAt: null },
+               { txt: "Bread", createAt: 187111111 }
+            ]
+         },
+         style: {
+            bgc: "#d400d4"
+         }
+      }
+   ]
+})();
+
+// storageService.save(STORAGE_KEY, notes)
+
+// function initStorage() {
+//    const _notes = storageService.load(STORAGE_KEY);
+//    if (!_notes || !_notes.length) storageService.save(STORAGE_KEY, notes)
+//       // return (_notes) ? _notes : notes
+
+
 
 // function getNoteById(noteId) {
 //    const note = notes.find(note => note.id === noteId);

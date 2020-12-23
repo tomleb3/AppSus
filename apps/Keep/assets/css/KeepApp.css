@@ -1,9 +1,10 @@
 .btn-plus {
-    background: url(../imgs/plus.png) no-repeat;
-    background-size: contain;
-    height: 50px;
-    width: 50px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
+   background: url(../imgs/plus.png) no-repeat;
+   background-size: contain;
+   height: 50px;
+   width: 50px;
+   position: fixed;
+   bottom: 10px;
+   right: 10px;
+   outline: none;
 }

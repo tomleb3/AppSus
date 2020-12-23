@@ -12,18 +12,23 @@ export class KeepApp extends React.Component {
 
     }
 
-    loadNotes = () =>{
+    loadNotes = () => {
         // const storageNotes = storageNotes.load(
         // if (!servNotes.length)
 
         // const servNotes = keepService.query()
     }
 
+    onAddNote = () => {
+        keepService.addNote();
+        this.setState({})
+    }
+
     render() {
         return (
             <article>
-                <KeepList notes={keepService.query()}/>
-                <button className="btn-plus" onClick={console.log('hi')}></button>
+                <KeepList notes={keepService.query()} />
+                <button className="btn-plus" onClick={this.onAddNote}></button>
             </article>
         )
     }

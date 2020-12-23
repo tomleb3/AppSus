@@ -29,7 +29,12 @@ export class KeepPreview extends React.Component {
             case 'NoteVideo':
                 return <LinearScale info={info} onAns={onAns} />
         }
-        return <p>UNKNWON</p>
+        return <div>
+            <button onClick={this.props.note.type='NoteTxt'}>Text</button>
+            <button>Image</button>
+            <button>ToDo</button>
+            <button>Video</button>
+        </div>
     }
 
 

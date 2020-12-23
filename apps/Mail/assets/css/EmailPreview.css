@@ -2,4 +2,5 @@
    background-color: rgb(255, 97, 97);
    display: flex;
    padding: 15px;
+   border: 2px solid rgb(255, 242, 128);
 }

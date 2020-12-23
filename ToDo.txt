@@ -1,2 +1,3 @@
 //Services load data from localStorage and provide an API with promises.
 //ASK MARGAD
+// =async

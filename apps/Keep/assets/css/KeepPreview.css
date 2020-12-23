@@ -1,5 +1,28 @@
 .keep-preview {
+   flex-direction: column;
    background-color: rgb(105, 194, 54);
    display: flex;
    padding: 15px;
+}
+
+.keep-preview img {
+   max-width: 220px;
+   height: 220px;
+   object-fit: cover;
+}
+
+
+/* .keep-preview h1 {
+   display: block;
+} */
+
+
+/* .keep-preview .enable {
+   background-color: inherit;
+   border: solid 1px ;
+} */
+
+.keep-preview .disable {
+   background-color: inherit;
+   border: none;
 }

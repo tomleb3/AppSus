@@ -4,6 +4,7 @@
    display: flex;
    padding: 15px;
    border-radius: 5px;
+   margin-top: 50px;
 }
 
 .keep-preview * {
@@ -49,20 +50,16 @@
    font-size: 1.8rem;
 }
 
-.keep-preview .transparent {
-   background-color: inherit;
-   border: none;
+.keep-preview input[type=checkbox]:checked+h4 {
+   text-decoration: line-through;
 }
 
-.keep-preview .btn-container {
-   display: flex;
-   justify-content: space-around;
-}
-
-.transparent:focus {
-   background-color: rgba(255, 255, 255, 0.6);
-}
-
-.transparent::placeholder {
-   /* color: black; */
+.upload-container label {
+   background-color: #5DADE2;
+   font-size: 1.25rem;
+   color: white;
+   text-align: center;
+   height: 50px;
+   line-height: 50px;
+   cursor: pointer;
 }

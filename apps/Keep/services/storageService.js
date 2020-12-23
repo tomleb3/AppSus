@@ -4,16 +4,18 @@ export const storageService = {
     clear
 }
 
-function load(key) {
+const key = 'keep_DB'
+
+function load() {
     const str = localStorage.getItem(key)
     return JSON.parse(str)
 }
 
-function save(key, val) {
+function save(val) {
     const str = JSON.stringify(val)
     localStorage.setItem(key, str)
 }
 
-function clear(key) {
+function clear() {
     localStorage.removeItem(key)
 }

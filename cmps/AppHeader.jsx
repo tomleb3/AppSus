@@ -1,13 +1,13 @@
 const { NavLink } = ReactRouterDOM;
 
 export function AppHeader() {
-    return <header>
+    return <header className="flex j-between">
         <h1><NavLink exact to="/">AppSus</NavLink></h1>
-        <ul>
-            <li><NavLink to="/book-app">Books</NavLink></li>
-            <li><NavLink to="/email-app">Email</NavLink></li>
-            <li><NavLink to="/keep-app">Keep</NavLink></li>
-            <li><NavLink to="/about">About</NavLink></li>
+        <ul className="flex clean-list">
+            <li><NavLink to="/book-app">BOOKS</NavLink></li>
+            <li><NavLink to="/email-app">EMAIL</NavLink></li>
+            <li><NavLink to="/keep-app">KEEP</NavLink></li>
+            <li><NavLink to="/about">ABOUT</NavLink></li>
         </ul>
     </header >
 }

@@ -1,4 +1,9 @@
 header {
     background-color: lightblue;
-    padding: 50px;
+    padding: 30px;
+    line-height: 30px;
+}
+
+header li {
+    margin-inline-end: 15px;
 }

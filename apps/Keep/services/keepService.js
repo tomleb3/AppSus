@@ -1,8 +1,9 @@
-import { storageService } from "../../../services/storageService.js";
+import { storageService } from "./storageService.js";
 
 export const keepService = {
    query,
-   addNote
+   addNote,
+   removeNote
 }
 
 var notes
@@ -15,7 +16,10 @@ function query() {
 
 function addNote() {
    notes.unshift(createNote())
-   console.log(notes);
+}
+
+function removeNote(noteId) {
+   notes = notes.filter(note => note.id !== noteId)
 }
 
 function createNote() {
@@ -28,7 +32,7 @@ function createNote() {
          txt: ""
       },
       style: {
-         bgc: "#686868"
+         bgc: "#AECBFA"
       }
    }
 }
@@ -37,44 +41,46 @@ function createNote() {
    const _notes = storageService.load(STORAGE_KEY);
    if (_notes && _notes.length) notes = _notes
    else notes = [{
-         id: 789,
-         type: "NoteTxt",
-         isPinned: false,
-         info: {
-            title: "asd",
-            txt: "Fullstack Me Baby!"
-         },
-         style: {
-            bgc: "#686868"
-         }
+      id: 789,
+      type: "NoteTxt",
+      isPinned: false,
+      info: {
+         title: "asd",
+         txt: "Fullstack Me Baby!"
       },
-      {
-         id: 790,
-         type: "NoteImg",
-         isPinned: false,
-         info: {
-            url: "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg",
-            title: "Me playing Mi"
-         },
-         style: {
-            bgc: "#008888"
-         }
-      },
-      {
-         id: 791,
-         type: "NoteTodos",
-         isPinned: false,
-         info: {
-            title: "What to buy:",
-            todos: [
-               { txt: "Milk", createAt: null },
-               { txt: "Bread", createAt: 187111111 }
-            ]
-         },
-         style: {
-            bgc: "#d400d4"
-         }
+      style: {
+         bgc: "#FDCFE8"
       }
+   },
+   {
+      id: 790,
+      type: "NoteImg",
+      isPinned: false,
+      info: {
+         url: "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg",
+         title: "Me playing Mi"
+      },
+      style: {
+         bgc: "#CCFF90"
+      }
+   },
+   {
+      id: 791,
+      type: "NoteTodos",
+      isPinned: false,
+      info: {
+         title: "What to buy:",
+         todos: [
+            { txt: "Milk", isChecked: true, createAt: null },
+            { txt: "Bread", isChecked: false, createAt: 187111111 },
+            { txt: "Cheese", isChecked: true, createAt: 187111111 },
+            { txt: "Eggs", isChecked: false, createAt: null }
+         ]
+      },
+      style: {
+         bgc: "#FFF475"
+      }
+   }
    ]
 })();
 

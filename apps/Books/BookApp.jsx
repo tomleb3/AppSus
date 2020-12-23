@@ -8,6 +8,6 @@ export class BookApp extends React.Component {
     }
 
     render() {
-
+        return <div>BookApp</div>
     }
 }

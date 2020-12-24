@@ -41,6 +41,34 @@
    width: 100%;
 }
 
+.keep-preview .btn-container {
+   visibility: hidden;
+}
+
+.keep-preview:hover .btn-container {
+   visibility: visible;
+}
+
+.keep-preview .btn-container button {
+   height: 25px;
+   width: 25px;
+}
+
+.keep-preview .btn-container button:first-child {
+   background: url(../imgs/push-pin.png) no-repeat;
+   background-size: cover;
+}
+
+.keep-preview .btn-container button:nth-child(2) {
+   background: url(../imgs/pallete.png) no-repeat;
+   background-size: cover;
+}
+
+.keep-preview .btn-container button:last-child {
+   background: url(../imgs/delete.png) no-repeat;
+   background-size: cover;
+}
+
 .keep-preview .todo-container {
    display: flex;
    flex-grow: 1;
@@ -52,8 +80,9 @@
    margin-inline-end: 10px;
 }
 
-.keep-preview input:first-of-type {
-   font-size: 1.8rem;
+.keep-preview input[name=title] {
+   font-size: 1.5rem;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .keep-preview input[type=checkbox]:checked+h4 {

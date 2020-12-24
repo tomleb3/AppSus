@@ -13,19 +13,23 @@ export class KeepApp extends React.Component {
         })
     }
 
+    saveNotes = () => {
+        keepService.saveNotesToStorage()
+    }
+
     onAddNote = () => {
         keepService.addNote()
-        this.setState({})
+        this.loadNotes()
     }
 
     onRemoveNote = (noteId) => {
         keepService.removeNote(noteId).then(() => {
-            this.setState({})
+            this.loadNotes()
         })
     }
 
     onClearAll = () => {
-        storageService.clear()
+        keepService.clearKeepStorage()
         location.reload()
     }
 
@@ -33,14 +37,10 @@ export class KeepApp extends React.Component {
         this.loadNotes()
     }
 
-    componentDidUpdate(){
-// keepService.sa
-    }
-
     render() {
         return (
             <article>
-                <KeepList notes={this.state.notes} onRemove={this.onRemoveNote} />
+                <KeepList notes={this.state.notes} saveNotes={this.saveNotes} onRemove={this.onRemoveNote} />
                 <button onClick={this.onClearAll}>Clear All</button>
                 <button className="btn-plus" onClick={this.onAddNote}></button>
             </article>

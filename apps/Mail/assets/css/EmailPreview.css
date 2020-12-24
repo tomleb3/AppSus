@@ -10,11 +10,9 @@
 }
 
 .email-preview div:nth-child(2) {
-   /* background-color: #fff */
    display: none;
 }
 
-.email-preview:hover~div:nth-child(2) {
-   /* background-color: #fff */
+.email-preview:hover div:last-of-type {
    display: block;
 }

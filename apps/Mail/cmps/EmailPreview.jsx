@@ -3,8 +3,7 @@
 const { Link } = ReactRouterDOM;
 
 export function EmailPreview({ email }) {
-
-
+    
     return <Link to={`/email/${email.id}`}>
         <article className="email-preview flex j-between">
             <div>
@@ -16,10 +15,5 @@ export function EmailPreview({ email }) {
                 <button>Star</button>
             </div>
         </article>
-
     </Link>
-
-
-
-
 }

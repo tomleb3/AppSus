@@ -1,11 +1,13 @@
 import { storageService } from "../../../services/storageService.js";
+import { utilService } from "../../../services/utilService.js";
 
 export const keepService = {
    query,
    addNote,
    removeNote,
    getNoteById,
-   saveNotesToStorage
+   saveNotesToStorage,
+   clearKeepStorage,
 }
 
 var notes
@@ -32,15 +34,20 @@ function removeNote(noteId) {
    return Promise.resolve()
 }
 
+function clearKeepStorage() {
+   storageService.clear(STORAGE_KEY)
+}
+
 function saveNotesToStorage() {
    storageService.save(STORAGE_KEY, notes)
 }
 
 function _createNote() {
    return {
-      id: 749,
+      id: utilService.makeId(),
       type: "",
       isPinned: false,
+      createdAt: Date.now(),
       info: {
          title: "",
          txt: ""
@@ -61,9 +68,10 @@ function _createNotes() {
 
 function _getDemoNotes() {
    const _notes = [{
-      id: 789,
+      id: 'demo_id_1',
       type: "NoteTxt",
       isPinned: false,
+      createdAt: Date.now(),
       info: {
          title: "asd",
          txt: "Fullstack Me Baby!"
@@ -73,9 +81,10 @@ function _getDemoNotes() {
       }
    },
    {
-      id: 790,
+      id: 'demo_id_2',
       type: "NoteImg",
-      isPinned: false,
+      isPinned: true,
+      createdAt: Date.now(),
       info: {
          url: "https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg",
          title: "Me playing Mi"
@@ -85,9 +94,10 @@ function _getDemoNotes() {
       }
    },
    {
-      id: 791,
+      id: 'demo_id_3',
       type: "NoteTodos",
-      isPinned: false,
+      isPinned: true,
+      createdAt: Date.now(),
       info: {
          title: "What to buy:",
          todos: [

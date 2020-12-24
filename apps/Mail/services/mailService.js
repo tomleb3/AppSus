@@ -1,4 +1,4 @@
-import { storageService } from "./storageService.js";
+import { storageService } from "../../../services/storageService.js";
 
 export const mailService = {
    query
@@ -10,12 +10,12 @@ var emails = _createEmails()
    // window.theBooks = emails //theEmails??????
 
 function _saveEmailsToStorage(emailsFromStorage = emails) {
-   storageService.saveToStorage(KEY, emailsFromStorage)
+   storageService.save(KEY, emailsFromStorage)
 }
 
 
 function _createEmails() {
-   var emailsFromStorage = storageService.loadFromStorage(KEY)
+   var emailsFromStorage = storageService.load(KEY)
    if (!emailsFromStorage || !emailsFromStorage.length) {
       emailsFromStorage = [{
             id: 78,

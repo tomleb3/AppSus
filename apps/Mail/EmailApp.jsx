@@ -1,3 +1,4 @@
+import { EmailCompose } from "./cmps/EmailCompose.jsx";
 import { EmailList } from "./cmps/EmailList.jsx"
 import { mailService } from "./services/mailService.js"
 
@@ -50,6 +51,7 @@ export class EmailApp extends React.Component {
     }
 
     onSendEmail = () => {
+        console.log('a')
         keepService.addEmail().then(() => {
             this.loadEmails()
         })
@@ -64,9 +66,10 @@ export class EmailApp extends React.Component {
     render() {
 
         return (
-            <article>
+            <article className="email-app">
                 {/* <button onClick={mailService.createEmail}>Compose</button> */}
                 <Link className="btn-compose" to="email-app/compose" onSend={this.onSendEmail}>Compose</Link>
+                
                 <aside>
                     <button className="btn-nav">Inbox</button>
                     <button className="btn-nav">Favorites</button>

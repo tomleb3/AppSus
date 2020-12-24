@@ -4,12 +4,14 @@
 
 /* KEEP */
 
-@import "../../apps/Keep/assets/css/KeepPreview.css";
-@import "../../apps/Keep/assets/css/KeepList.css";
 @import "../../apps/Keep/assets/css/KeepApp.css";
+@import "../../apps/Keep/assets/css/KeepNav.css";
+@import "../../apps/Keep/assets/css/KeepList.css";
+@import "../../apps/Keep/assets/css/KeepPreview.css";
 
 /* MAIL */
 
 @import "../../apps/Mail/assets/css/EmailApp.css";
+@import "../../apps/Mail/assets/css/EmailList.css";
 @import "../../apps/Mail/assets/css/EmailPreview.css";
 @import "../../apps/Mail/assets/css/EmailCompose.css";

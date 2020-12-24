@@ -5,6 +5,6 @@ export function EmailCompose({ emails, onSend }) {
         <input type="text" className="transparent-input" placeholder="To:" />
         <input type="text" className="transparent-input" placeholder="Subject:" />
         <textarea className="transparent-input" placeholder="Content:" />
-        <button onClick={}>Send</button>
+        <button onClick={onSend}>Send</button>
     </section>
 }

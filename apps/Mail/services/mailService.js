@@ -3,7 +3,8 @@ import { utilService } from "../../../services/utilService.js";
 
 export const mailService = {
    query,
-   createEmail
+   createEmail,
+   saveEmailsToStorage
 }
 
 const KEY = 'mailDB';
@@ -11,7 +12,7 @@ const KEY = 'mailDB';
 function createEmail() {
    console.log('HI');
    return {
-      id: utilService.makeId(), //makeId
+      id: utilService.makeId(),
       sender: 'Me',
       subject: '',
       body: '',
@@ -23,7 +24,7 @@ function createEmail() {
 var emails = _createEmails()
    // window.theBooks = emails //theEmails??????
 
-function _saveEmailsToStorage(emailsFromStorage = emails) {
+function saveEmailsToStorage(emailsFromStorage = emails) {
    storageService.save(KEY, emailsFromStorage)
 }
 
@@ -68,7 +69,7 @@ function _createEmails() {
       ]
    }
    console.log(emailsFromStorage);
-   _saveEmailsToStorage(emailsFromStorage);
+   saveEmailsToStorage(emailsFromStorage);
    return emailsFromStorage
 
 }

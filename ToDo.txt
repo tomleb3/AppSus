@@ -8,8 +8,5 @@ Change email from BOLD to Regular as read
 Maybe just the title
 
 
-ohad-Email
-call to a function with-()
-makeId and Date.now
 
-replay button
+reply button

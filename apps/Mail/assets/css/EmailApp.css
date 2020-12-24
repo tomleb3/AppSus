@@ -10,8 +10,12 @@
 .btn-nav {
    background-color: rgb(190, 190, 190);
    /* display: block; */
-   border-radius: 4px;
+   border-radius: 6px;
    padding: 12px;
    margin: 6px;
    width: 20%;
+}
+
+.btn-nav:hover {
+   box-shadow: inset 0px -4px 0px 0px #494949;
 }

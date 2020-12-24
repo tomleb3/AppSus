@@ -9,10 +9,16 @@
    background-color: rgb(255, 159, 159);
 }
 
-.email-preview div:nth-child(2) {
-   display: none;
-}
-
 .email-preview:hover div:last-of-type {
    display: block;
+}
+
+.email-preview div button {
+   width: 28px;
+   height: 28px;
+}
+
+.email-preview div button:last-of-type {
+   background: url(../imgs/star.png) no-repeat;
+   background-size: contain;
 }

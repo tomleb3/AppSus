@@ -7,7 +7,8 @@ export class EmailApp extends React.Component {
     state = {
         filterBy: {
             name: '',
-            isRead: false
+            isRead: false,
+            isStar: false
         },
         emails: []
     }
@@ -39,6 +40,15 @@ export class EmailApp extends React.Component {
         return emails;
     }
 
+    onSetFilter = (filterBy) => {
+        console.log('filterBy:', filterBy);
+        this.setState({ filterBy });
+    }
+
+    saveEmails = () => {
+        mailService.saveEmailsToStorage()
+    }
+
 
     render() {
         
@@ -52,7 +62,7 @@ export class EmailApp extends React.Component {
                     <button className="btn-nav">Sent</button>
                     <button className="btn-nav">Something</button>
                 </aside>
-                <EmailList emails={this.state.emails}/>
+                <EmailList emails={this.state.emails} saveEmails={this.saveEmails}/>
             </article>
         )
     }

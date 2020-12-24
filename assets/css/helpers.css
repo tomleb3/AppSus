@@ -4,6 +4,10 @@
     display: flex;
 }
 
+.flex.wrap {
+    flex-wrap: wrap;
+}
+
 .flex.row {
     flex-direction: row;
 }
@@ -58,4 +62,13 @@
 
 .clean-list {
     list-style: none;
+}
+
+.muted {
+    font-size: 0.7rem;
+    opacity: 0.5;
+}
+
+.display-none {
+    display: none;
 }

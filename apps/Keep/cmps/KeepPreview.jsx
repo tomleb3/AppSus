@@ -26,11 +26,15 @@ export class KeepPreview extends React.Component {
             case 'NoteVideo':
                 return <div>video</div>
         }
-        return <div className="flex col">
-            <button key={utilService.makeId()} onClick={() => this.onSetType('NoteTxt')}>Text</button>
-            <button key={utilService.makeId()} onClick={() => this.onSetType('NoteImg')}>Image</button>
-            <button key={utilService.makeId()} onClick={() => this.onSetType('NoteTodos')}>List</button>
-            <button key={utilService.makeId()} onClick={() => this.onSetType('NoteVideo')}>Video</button>
+        return <div className="add-container">
+            <section className="flex j-around a-center col">
+                <button key={utilService.makeId()} onClick={() => this.onSetType('NoteTxt')}></button>
+                <button key={utilService.makeId()} onClick={() => this.onSetType('NoteImg')}></button>
+            </section>
+            <aside className="flex j-around a-center col">
+                <button key={utilService.makeId()} onClick={() => this.onSetType('NoteTodos')}></button>
+                <button key={utilService.makeId()} onClick={() => this.onSetType('NoteVideo')}></button>
+            </aside>
         </div>
     }
 
@@ -44,7 +48,6 @@ export class KeepPreview extends React.Component {
     }
 
     onPinnedToggle = () => {
-        console.log(this.props.note.isPinned)
         this.props.note.isPinned = !this.props.note.isPinned
         this.props.saveNotes()
         this.setState({})
@@ -52,6 +55,13 @@ export class KeepPreview extends React.Component {
 
     onSetType = (type) => {
         this.props.note.type = type
+        this.setState({})
+    }
+
+    onColorChange = (ev) => {
+        console.log(ev.target.value)
+        this.props.note.style.bgc = ev.target.value
+        this.props.saveNotes()
         this.setState({})
     }
 
@@ -70,16 +80,22 @@ export class KeepPreview extends React.Component {
 
         return (
             <article style={{ backgroundColor: note.style.bgc }} className="keep-preview">
+                <button className={note.isPinned ? "top-pin" : "display-none"} onClick={this.onPinnedToggle}></button>
                 <input className="transparent-input" name="title" type="text" placeholder="Title.."
                     value={note.info.title} onChange={this.handleInputChange}></input>
+
                 {this.dynamicNote()}
-                <section className="btn-container flex j-around">
-                    <button onClick={this.onPinnedToggle}></button>
-                    <button></button>
+
+                <section className="btn-actions flex j-around">
+                    <button className={note.isPinned ? "pinned" : "not-pinned"} onClick={this.onPinnedToggle}></button>
+                    <label>
+                        <input type="color" value={note.style.bgc} onChange={this.onColorChange}></input>
+                    </label>
                     <button onClick={() => this.props.onRemove(note.id)}></button>
                 </section>
+
                 <p className="muted">Created at {new Date(note.createdAt).toLocaleTimeString("en-US")}
-                &nbsp;{new Date(note.createdAt).toLocaleDateString("en-US")}</p>
+                    &nbsp;{new Date(note.createdAt).toLocaleDateString("en-US")}</p>
             </article>
         )
         {/* <Link to={`/email/${email.id}`}></Link> */ }

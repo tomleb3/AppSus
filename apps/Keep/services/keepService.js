@@ -53,7 +53,7 @@ function _createNote() {
          txt: ""
       },
       style: {
-         bgc: "#AECBFA"
+         bgc: utilService.randomColor()
       }
    }
 }

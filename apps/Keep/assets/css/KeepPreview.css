@@ -41,30 +41,41 @@
    width: 100%;
 }
 
-.keep-preview .btn-container {
+.keep-preview .btn-actions {
    visibility: hidden;
 }
 
-.keep-preview:hover .btn-container {
+.keep-preview:hover .btn-actions {
    visibility: visible;
 }
 
-.keep-preview .btn-container button {
+.keep-preview .btn-actions button, .keep-preview .btn-actions label {
    height: 25px;
    width: 25px;
 }
 
-.keep-preview .btn-container button:first-child {
-   background: url(../imgs/push-pin.png) no-repeat;
+.keep-preview .btn-actions button.not-pinned {
+   background: url(../imgs/push-pin_off.png) no-repeat;
    background-size: cover;
 }
 
-.keep-preview .btn-container button:nth-child(2) {
+.keep-preview .btn-actions button.pinned {
+   background: url(../imgs/push-pin_on.png) no-repeat;
+   background-size: cover;
+}
+
+.keep-preview .btn-actions label {
    background: url(../imgs/pallete.png) no-repeat;
-   background-size: cover;
+   background-size: contain;
+   cursor: pointer;
 }
 
-.keep-preview .btn-container button:last-child {
+.keep-preview .btn-actions input[type=color] {
+   visibility: hidden;
+   border: none;
+}
+
+.keep-preview .btn-actions button:last-child {
    background: url(../imgs/delete.png) no-repeat;
    background-size: cover;
 }
@@ -88,4 +99,45 @@
 .keep-preview input[type=checkbox]:checked+h4 {
    text-decoration: line-through;
    opacity: 0.7;
+}
+
+.keep-preview .top-pin {
+   background: url(../imgs/pinned.png) no-repeat;
+   background-size: contain;
+   height: 15px;
+   width: 15px;
+}
+
+.keep-preview .add-container button {
+   height: 50px;
+   width: 50px;
+   transition: 0.2s;
+}
+
+.keep-preview .add-container button:hover {
+   transform: scale(1.05);
+}
+
+.keep-preview .add-container button:active {
+   transform: scale(0.97);
+}
+
+.keep-preview .add-container section button:first-child {
+   background: url(../imgs/text.png) no-repeat;
+   background-size: cover;
+}
+
+.keep-preview .add-container section button:last-child {
+   background: url(../imgs/image.png) no-repeat;
+   background-size: cover;
+}
+
+.keep-preview .add-container aside button:first-child {
+   background: url(../imgs/list.png) no-repeat;
+   background-size: cover;
+}
+
+.keep-preview .add-container aside button:last-child {
+   background: url(../imgs/video.png) no-repeat;
+   background-size: cover;
 }

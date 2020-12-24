@@ -12,10 +12,8 @@ export class KeepPreview extends React.Component {
                 if (this.props.note.info.url)
                     return <div><img src={this.props.note.info.url}></img></div>
                 else {
-                    return <div className="upload-container flex j-center">
-                        <label htmlFor="img-input" data-trans="upload" onClick={this.onImgInput}>Upload
-                        <input id="img-input" type="file" ref={this.refUpload} onChange={this.onImgInput}></input>
-                        </label>
+                    return <div className="flex j-center">
+                        <input className="transparent-input" type="text" placeholder="Title.."></input>
                     </div>
                 }
             case 'NoteTodos':
@@ -35,27 +33,6 @@ export class KeepPreview extends React.Component {
             <button key={utilService.makeId()} onClick={() => this.onSetType('NoteTodos')}>ToDo</button>
             <button key={utilService.makeId()} onClick={() => this.onSetType('NoteVideo')}>Video</button>
         </div>
-    }
-
-    onImgInput = (ev) => {
-        this.loadImageFromInput(ev, this.setState({}))
-
-        // if (this.refUpload.current) { // highly experimental
-        //     console.log('yay')
-        //     return <div>asd</div>
-        // }
-    }
-
-    loadImageFromInput = (ev, onImageReady) => {
-        var reader = new FileReader()
-        reader.onload = function (event) {
-            var img = new Image()
-            img.onload = onImageReady.bind(null, img)
-            img.src = event.target.result
-
-            onImgClick(img.src)
-        }
-        reader.readAsDataURL(ev.target.files[0])
     }
 
     onCheckBoxClick = (todo) => {

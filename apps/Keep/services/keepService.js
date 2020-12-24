@@ -1,28 +1,42 @@
-import { storageService } from "./storageService.js";
+import { storageService } from "../../../services/storageService.js";
 
 export const keepService = {
    query,
    addNote,
-   removeNote
+   removeNote,
+   getNoteById,
+   saveNotesToStorage
 }
 
 var notes
-
-const STORAGE_KEY = 'keepDB';
+const STORAGE_KEY = 'keepDB'
+_createNotes()
 
 function query() {
-   return notes
+   return Promise.resolve(notes)
+}
+
+function getNoteById(noteId) {
+   const note = notes.find(note => note.id === noteId);
+   return Promise.resolve(note)
 }
 
 function addNote() {
-   notes.unshift(createNote())
+   notes.unshift(_createNote())
+   saveNotesToStorage()
 }
 
 function removeNote(noteId) {
-   notes = notes.filter(note => note.id !== noteId)
+   notes = notes.filter(note => note.id !== noteId);
+   saveNotesToStorage()
+   return Promise.resolve()
 }
 
-function createNote() {
+function saveNotesToStorage() {
+   storageService.save(STORAGE_KEY, notes)
+}
+
+function _createNote() {
    return {
       id: 749,
       type: "",
@@ -37,10 +51,16 @@ function createNote() {
    }
 }
 
-(() => {
-   const _notes = storageService.load(STORAGE_KEY);
-   if (_notes && _notes.length) notes = _notes
-   else notes = [{
+function _createNotes() {
+   notes = storageService.load(STORAGE_KEY);
+   if (!notes || !notes.length) {
+      notes = _getDemoNotes()
+      saveNotesToStorage();
+   }
+}
+
+function _getDemoNotes() {
+   const _notes = [{
       id: 789,
       type: "NoteTxt",
       isPinned: false,
@@ -80,23 +100,9 @@ function createNote() {
       style: {
          bgc: "#FFF475"
       }
-   }
-   ]
-})();
-
-// storageService.save(STORAGE_KEY, notes)
-
-// function initStorage() {
-//    const _notes = storageService.load(STORAGE_KEY);
-//    if (!_notes || !_notes.length) storageService.save(STORAGE_KEY, notes)
-//       // return (_notes) ? _notes : notes
-
-
-
-// function getNoteById(noteId) {
-//    const note = notes.find(note => note.id === noteId);
-//    return Promise.resolve(note);
-// }
+   }];
+   return _notes;
+}
 
 
 //

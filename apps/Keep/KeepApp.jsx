@@ -1,11 +1,16 @@
 import { KeepList } from "./cmps/KeepList.jsx"
 import { keepService } from "./services/keepService.js"
-import { storageService } from "./services/storageService.js";
 
 export class KeepApp extends React.Component {
 
     state = {
+        notes: []
+    }
 
+    loadNotes = () => {
+        keepService.query().then(notes => {
+            this.setState({ notes })
+        })
     }
 
     onAddNote = () => {
@@ -24,18 +29,18 @@ export class KeepApp extends React.Component {
         location.reload()
     }
 
-    componentDidUpdate() {
-        storageService.save(keepService.query())
+    componentDidMount() {
+        this.loadNotes()
     }
 
-    componentDidMount() {
-
+    componentDidUpdate(){
+// keepService.sa
     }
 
     render() {
         return (
             <article>
-                <KeepList notes={keepService.query()} onRemove={this.onRemoveNote} />
+                <KeepList notes={this.state.notes} onRemove={this.onRemoveNote} />
                 <button onClick={this.onClearAll}>Clear All</button>
                 <button className="btn-plus" onClick={this.onAddNote}></button>
             </article>

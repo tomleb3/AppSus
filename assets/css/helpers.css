@@ -43,10 +43,11 @@
 .transparent-input {
     background-color: inherit;
     border: none;
+    outline: none;
 }
 
 .transparent-input:focus {
-    background-color: rgba(255, 255, 255, 0.6);
+    /* background-color: rgba(255, 255, 255, 0.6); */
 }
 
 .transparent-input::placeholder {

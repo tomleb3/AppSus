@@ -34,6 +34,7 @@ input {
 }
 
 textarea {
+   caret-color: red;
    resize: none;
 }
 

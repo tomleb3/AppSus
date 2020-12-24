@@ -17,7 +17,10 @@ export class KeepPreview extends React.Component {
                 }
             case 'NoteTodos':
                 this.sortTodosByChecked()
+                // let pinnedCount = 0;
                 return this.props.note.info.todos.map(todo => {
+                    // if (todo.isChecked) pinnedCount++
+                    
                     return <aside className="todo-container" key={utilService.makeId()}>
                         <input type="checkbox" onClick={() => this.onTodoToggle(todo)} onChange={this.handleInputChange} checked={todo.isChecked} key={utilService.makeId()}></input>
                         <h4 key={utilService.makeId()}>{todo.txt}</h4>
@@ -76,7 +79,7 @@ export class KeepPreview extends React.Component {
     }
 
     render() {
-        const note = this.props.note
+        const {note} = this.props
 
         return (
             <article style={{ backgroundColor: note.style.bgc }} className="keep-preview">

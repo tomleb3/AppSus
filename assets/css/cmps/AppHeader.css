@@ -1,6 +1,5 @@
 header {
-    padding: 30px;
-    line-height: 30px;
+    padding: 15px 30px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.3);
     transition: 0.5s;
 }
@@ -9,6 +8,24 @@ header:hover {
     padding-bottom: 50px;
 }
 
+header img {
+    height: 70px;
+}
+
 header li {
     margin-inline-end: 30px;
+    font-size: 1.15rem;
+    font-weight: bolder;
+}
+
+header li:first-of-type {
+    color: #5BC13A;
+}
+
+header li:nth-child(2) {
+    color: #6E97F4;
+}
+
+header li:nth-child(3) {
+    color: #FFAF28;
 }

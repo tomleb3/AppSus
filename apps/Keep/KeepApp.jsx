@@ -18,8 +18,9 @@ export class KeepApp extends React.Component {
     }
 
     onAddNote = () => {
-        keepService.addNote()
-        this.loadNotes()
+        keepService.addNote().then(() => {
+            this.loadNotes()
+        })
     }
 
     onRemoveNote = (noteId) => {

@@ -45,24 +45,35 @@ export class EmailApp extends React.Component {
         this.setState({ filterBy });
     }
 
-    saveEmails = () => {
+    onSaveEmails = () => {
         mailService.saveEmailsToStorage()
     }
 
+    onSendEmail = () => {
+        keepService.addEmail().then(() => {
+            this.loadEmails()
+        })
+    }
+
+    onRemoveEmail = (emailId) => {
+        mailService.removeEmail(emailId).then(() => {
+            this.loadEmails()
+        })
+    }
 
     render() {
-        
+
         return (
             <article>
                 {/* <button onClick={mailService.createEmail}>Compose</button> */}
-                <Link className="btn-compose" to="email-app/compose">Compose</Link>
+                <Link className="btn-compose" to="email-app/compose" onSend={this.onSendEmail}>Compose</Link>
                 <aside>
                     <button className="btn-nav">Inbox</button>
                     <button className="btn-nav">Favorites</button>
                     <button className="btn-nav">Sent</button>
                     <button className="btn-nav">Something</button>
                 </aside>
-                <EmailList emails={this.state.emails} saveEmails={this.saveEmails}/>
+                <EmailList emails={this.state.emails} onRemove={this.onRemoveEmail} onSave={this.onSaveEmails} />
             </article>
         )
     }

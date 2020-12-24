@@ -106,6 +106,7 @@
    background-size: contain;
    height: 15px;
    width: 15px;
+float: right;
 }
 
 .keep-preview .add-container button {

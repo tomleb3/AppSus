@@ -13,12 +13,17 @@
    display: block;
 }
 
-.email-preview div button {
+.email-preview .btn-container button {
    width: 28px;
    height: 28px;
 }
 
-.email-preview div button:last-of-type {
+.email-preview .btn-container button:first-of-type {
    background: url(../imgs/star.png) no-repeat;
+   background-size: contain;
+}
+
+.email-preview div button:last-of-type {
+   background: url(../imgs/delete.png) no-repeat;
    background-size: contain;
 }

@@ -10,5 +10,6 @@
 
 /* MAIL */
 
-@import "../../apps/Mail/assets/css/EmailPreview.css";
 @import "../../apps/Mail/assets/css/EmailApp.css";
+@import "../../apps/Mail/assets/css/EmailPreview.css";
+@import "../../apps/Mail/assets/css/EmailCompose.css";

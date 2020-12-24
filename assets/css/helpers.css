@@ -16,6 +16,14 @@
     flex-direction: column;
 }
 
+.flex.start {
+    justify-content: flex-start;
+}
+
+.flex.end {
+    justify-content: flex-end;
+}
+
 .flex.j-center {
     justify-content: center;
 }

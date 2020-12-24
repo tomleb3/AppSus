@@ -26,6 +26,7 @@ function getNoteById(noteId) {
 function addNote() {
    notes.unshift(_createNote())
    saveNotesToStorage()
+   return Promise.resolve()
 }
 
 function removeNote(noteId) {

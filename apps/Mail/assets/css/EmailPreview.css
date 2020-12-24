@@ -4,3 +4,17 @@
    padding: 15px;
    border: 2px solid rgb(255, 242, 128);
 }
+
+.email-preview:hover {
+   background-color: rgb(255, 159, 159);
+}
+
+.email-preview div:nth-child(2) {
+   /* background-color: #fff */
+   display: none;
+}
+
+.email-preview:hover~div:nth-child(2) {
+   /* background-color: #fff */
+   display: block;
+}

@@ -8,8 +8,9 @@ export function EmailPreview({ email }) {
     return <Link to={`/email/${email.id}`}>
         <article className="email-preview flex j-between">
             <div>
-                <h1>{email.subject}</h1>
-                <h3>{email.body}</h3>
+                <h3>{email.sender}</h3>
+                <h2>{email.subject}</h2>
+                <h1>{email.body}</h1>
             </div>
             <div className="flex">
                 <button>Delete</button>

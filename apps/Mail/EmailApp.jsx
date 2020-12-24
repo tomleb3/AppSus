@@ -1,6 +1,7 @@
 import { EmailList } from "./cmps/EmailList.jsx"
 import { mailService } from "./services/mailService.js"
 
+const { Link } = ReactRouterDOM;
 
 export class EmailApp extends React.Component {
     state = {
@@ -43,11 +44,13 @@ export class EmailApp extends React.Component {
         
         return (
             <article>
+                {/* <button onClick={mailService.createEmail}>Compose</button> */}
+                <Link className="btn-compose" to="email-app/compose">Compose</Link>
                 <aside>
-                    <button>Inbox</button>
-                    <button>Favorites</button>
-                    <button>Sent</button>
-                    <button></button>
+                    <button className="btn-nav">Inbox</button>
+                    <button className="btn-nav">Favorites</button>
+                    <button className="btn-nav">Sent</button>
+                    <button className="btn-nav">Something</button>
                 </aside>
                 <EmailList emails={this.state.emails}/>
             </article>

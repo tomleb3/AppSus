@@ -3,7 +3,12 @@
 @import "./cmps/AppHeader.css";
 
 /* KEEP */
-@import "../../apps/Mail/assets/css/EmailPreview.css";
+
 @import "../../apps/Keep/assets/css/KeepPreview.css";
 @import "../../apps/Keep/assets/css/KeepList.css";
 @import "../../apps/Keep/assets/css/KeepApp.css";
+
+/* MAIL */
+
+@import "../../apps/Mail/assets/css/EmailPreview.css";
+@import "../../apps/Mail/assets/css/EmailApp.css";

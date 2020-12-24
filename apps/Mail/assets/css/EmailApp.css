@@ -1,0 +1,17 @@
+.btn-compose {
+   display: block;
+   background-color: rgb(119, 241, 225);
+   padding: 12px;
+   margin: 6px;
+   font-weight: 700;
+   text-align: center;
+}
+
+.btn-nav {
+   background-color: rgb(190, 190, 190);
+   /* display: block; */
+   border-radius: 4px;
+   padding: 12px;
+   margin: 6px;
+   width: 20%;
+}

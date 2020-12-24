@@ -1,3 +1,15 @@
 //Services load data from localStorage and provide an API with promises.
 //ASK MARGAD
 // =async
+
+
+//ohad-Email
+Change email from BOLD to Regular as read
+Maybe just the title
+
+
+ohad-Email
+call to a function with-()
+makeId and Date.now
+
+replay button

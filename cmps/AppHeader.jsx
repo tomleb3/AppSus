@@ -9,5 +9,18 @@ export function AppHeader() {
             <li><NavLink to="/keep-app">KEEP</NavLink></li>
             <li><NavLink to="/about">ABOUT</NavLink></li>
         </ul>
-    </header >
+
+        <label className="btn-menu" htmlFor="menu-checkbox"></label>
+        <input id="menu-checkbox" className="display-none" type="checkbox"></input>
+        <div className="menu flex display-none j-around">
+            <section className="flex j-around a-center col">
+                <button>Keep</button>
+                <button>Books</button>
+            </section>
+            <section className="flex j-around a-center col">
+                <button>Email</button>
+                <button>About</button>
+            </section>
+        </div>
+    </header>
 }

@@ -1,6 +1,6 @@
 header {
     padding: 15px 30px;
-    box-shadow: 0px 2px 10px -5px rgba(0,0,0,0.3);
+    box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.3);
     transition: 0.5s;
     position: fixed;
     width: 100vw;
@@ -10,6 +10,37 @@ header {
 
 header img {
     height: 45px;
+}
+
+header .btn-menu {
+    background: url(../../imgs/menu.png) no-repeat;
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+    display: none;
+    cursor: pointer;
+}
+
+header #menu-checkbox:checked+.menu {
+    display: flex;
+}
+
+header .menu {
+    height: 40vh;
+    width: 40vw;
+    border-radius: 5px;
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    background-color: rgba(51, 51, 51, 0.99);
+}
+
+header .menu button {
+    height: 15px;
+    width: 15px;
+    padding: 0;
+    font-size: 1.25em;
+    background-color: inherit;
 }
 
 header li {
@@ -28,4 +59,13 @@ header li:nth-child(2) {
 
 header li:nth-child(3) {
     color: #FFAF28;
+}
+
+@media (max-width: 960px) {
+    header li {
+        display: none;
+    }
+    header .btn-menu {
+        display: block;
+    }
 }

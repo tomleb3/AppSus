@@ -21,10 +21,6 @@ header .btn-menu {
     cursor: pointer;
 }
 
-header #menu-checkbox:checked+.menu {
-    display: flex;
-}
-
 header .menu {
     height: 400px;
     width: 400px;
@@ -42,6 +38,12 @@ header .menu button {
     padding: 0;
     font-size: 1.25em;
     background-color: inherit;
+}
+
+header .menu label {
+    font-size: 0.75rem;
+    margin-top: 2px;
+    color: rgba(0, 0, 0, 0.9);
 }
 
 header .menu .btn-keep {
@@ -89,9 +91,12 @@ header li:nth-child(3) {
     header .btn-menu {
         display: block;
     }
+    header #menu-checkbox:checked+.menu {
+        display: flex;
+    }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
     header .menu {
         height: 300px;
         width: 300px;

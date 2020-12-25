@@ -15,9 +15,9 @@ export class KeepPreview extends React.Component {
                 if (this.props.note.info.url)
                     return <div><img src={this.props.note.info.url}></img></div>
                 else {
-                    return <form className="flex col j-between" onSubmit={this.onSetUrl}>
+                    return <form onSubmit={this.onSetUrl}>
                         <input className="transparent-input" type="text" placeholder="URL?" onChange={this.handleInputChange} ref={this.refUrl}></input>
-                        <button type="submit">Save</button>
+                        <button className="right" type="submit">Save</button>
                     </form>
                 }
 
@@ -33,17 +33,17 @@ export class KeepPreview extends React.Component {
                 }
                 else
                     return <div className="flex a-start">
-                        <button onClick={this.onAddListItem}>+</button>
-                        <input className="transparent-input" type="text" placeholder="List item" name="list-item" ref={this.refListItem} onChange={this.handleInputChange}></input>
+                        <button className="add-item-btn" onClick={this.onAddListItem}>+</button>
+                        <input className="transparent-input" type="text" placeholder="List item" ref={this.refListItem} onChange={this.handleInputChange}></input>
                     </div>
 
             case 'NoteVideo':
                 if (this.props.note.info.url)
                     return <iframe src={this.props.note.info.url}></iframe>
                 else
-                    return <form className="flex col j-between" onSubmit={this.onSetUrl}>
+                    return <form onSubmit={this.onSetUrl}>
                         <input className="transparent-input" type="text" placeholder="URL?" onChange={this.handleInputChange} ref={this.refUrl}></input>
-                        <button type="submit">Save</button>
+                        <button className="right" type="submit">Save</button>
                     </form>
         }
         return <div className="add-container flex">
@@ -60,7 +60,6 @@ export class KeepPreview extends React.Component {
 
     onListItemToggle = (todo) => {
         todo.isChecked = !todo.isChecked
-        this.setState({})
     }
 
     sortListItems = () => {
@@ -72,13 +71,11 @@ export class KeepPreview extends React.Component {
         console.log(this.props.note.info)
         this.props.note.info.items.push({ txt: this.refListItem.current.value, isChecked: false })
         this.props.saveNotes()
-        this.setState({})
     }
 
     onPinnedToggle = () => {
         this.props.note.isPinned = !this.props.note.isPinned
         this.props.saveNotes()
-        this.setState({})
     }
 
     onSetType = (type) => {
@@ -92,13 +89,11 @@ export class KeepPreview extends React.Component {
             url = url.replace('watch?v=', 'embed/')
         this.props.note.info.url = url
         this.props.saveNotes()
-        this.setState({})
     }
 
     onColorChange = (ev) => {
         this.props.note.style.bgc = ev.target.value
         this.props.saveNotes()
-        this.setState({})
     }
 
     handleInputChange = (ev, idx) => {
@@ -107,7 +102,6 @@ export class KeepPreview extends React.Component {
         else
             this.props.note.info[ev.target.name] = ev.target.value
         this.props.saveNotes()
-        this.setState({})
     }
 
     componentDidMount() {

@@ -93,13 +93,32 @@
    margin-inline-end: 10px;
 }
 
+.keep-preview .add-item-btn {
+   height: 15px;
+   width: 15px;
+   padding: 0;
+   font-size: 1.25em;
+   background-color: inherit;
+}
+
+.keep-preview button[type=submit] {
+   padding: 0.7em 1.7em;
+   color: white;
+   background-color: #3369ff;
+   box-shadow: inset 0 -0.6em 1em -0.35em rgba(0, 0, 0, 0.17), inset 0 0.6em 2em -0.3em rgba(255, 255, 255, 0.15), inset 0 0 0em 0.05em rgba(255, 255, 255, 0.12);
+}
+
 .keep-preview input[name=title] {
    font-size: 1.25rem;
    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-.keep-preview input[type=checkbox]{
-margin-top: 10px;
+.keep-preview input[placeholder="URL?"] {
+   padding-bottom: 180px;
+}
+
+.keep-preview input[type=checkbox] {
+   margin-top: 10px;
 }
 
 .keep-preview input[type=checkbox]:checked+input {

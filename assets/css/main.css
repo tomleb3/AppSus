@@ -17,3 +17,10 @@
 @import "../../apps/Mail/assets/css/EmailList.css";
 @import "../../apps/Mail/assets/css/EmailPreview.css";
 @import "../../apps/Mail/assets/css/EmailCompose.css";
+
+/* BOOKS */
+
+@import "../../apps/Books/assets/css/BookList.css";
+@import "../../apps/Books/assets/css/BookPreview.css";
+@import "../../apps/Books/assets/css/BookDetails.css";
+@import "../../apps/Books/assets/css/BookFilter.css";

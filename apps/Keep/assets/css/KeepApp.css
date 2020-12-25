@@ -1,4 +1,4 @@
-.btn-plus {
+.keep-app .btn-plus {
    background: url(../imgs/plus.png) no-repeat;
    background-size: contain;
    height: 50px;
@@ -6,4 +6,8 @@
    position: fixed;
    bottom: 10px;
    right: 10px;
+}
+
+.keep-app .btn-clear-all{
+
 }

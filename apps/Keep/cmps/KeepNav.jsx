@@ -3,7 +3,7 @@ export function KeepNav({ }) {
         <nav className="keep-nav">
             <ul className="clean-list">
                 <li>All</li>
-                <li>Text</li>
+                <li className="active">Text</li>
                 <li>Image</li>
                 <li>List</li>
                 <li>Video</li>

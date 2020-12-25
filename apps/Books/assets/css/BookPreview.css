@@ -1,0 +1,25 @@
+.book-preview {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+}
+
+.book-preview * {
+    margin: 15px;
+}
+
+.book-preview h1 {
+    text-transform: capitalize;
+}
+
+.book-preview img {
+    height: 200px;
+    width: 150px;
+    transition: 0.2s;
+}
+
+.book-preview img:hover {
+    opacity: 0.2;
+}

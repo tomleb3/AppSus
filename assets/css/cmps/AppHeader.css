@@ -1,6 +1,6 @@
 header {
     padding: 15px 30px;
-    box-shadow: 0px 2px 10px -5px rgba(0,0,0,0.4);
+    box-shadow: 0px 2px 10px -5px rgba(0,0,0,0.3);
     transition: 0.5s;
     position: fixed;
     width: 100vw;
@@ -9,7 +9,7 @@ header {
 }
 
 header img {
-    height: 70px;
+    height: 45px;
 }
 
 header li {

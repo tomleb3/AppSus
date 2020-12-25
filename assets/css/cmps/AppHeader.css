@@ -26,21 +26,42 @@ header #menu-checkbox:checked+.menu {
 }
 
 header .menu {
-    height: 40vh;
-    width: 40vw;
+    height: 400px;
+    width: 400px;
     border-radius: 5px;
     position: absolute;
     top: 70px;
     right: 30px;
-    background-color: rgba(51, 51, 51, 0.99);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
 header .menu button {
-    height: 15px;
-    width: 15px;
+    height: 55px;
+    width: 55px;
     padding: 0;
     font-size: 1.25em;
     background-color: inherit;
+}
+
+header .menu .btn-keep {
+    background: url(../../imgs/keep.png) no-repeat;
+    background-size: cover;
+}
+
+header .menu .btn-book {
+    background: url(../../imgs/book.png) no-repeat;
+    background-size: cover;
+}
+
+header .menu .btn-email {
+    background: url(../../imgs/email.png) no-repeat;
+    background-size: cover;
+}
+
+header .menu .btn-about {
+    background: url(../../imgs/about.png) no-repeat;
+    background-size: cover;
 }
 
 header li {
@@ -67,5 +88,12 @@ header li:nth-child(3) {
     }
     header .btn-menu {
         display: block;
+    }
+}
+
+@media (max-width: 500px) {
+    header .menu {
+        height: 300px;
+        width: 300px;
     }
 }

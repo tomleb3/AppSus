@@ -24,3 +24,10 @@
 @import "../../apps/Books/assets/css/BookPreview.css";
 @import "../../apps/Books/assets/css/BookDetails.css";
 @import "../../apps/Books/assets/css/BookFilter.css";
+
+/* FONTS */
+
+@font-face {
+    font-family: SourceSans-regular;
+    src: url(../fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf);
+}

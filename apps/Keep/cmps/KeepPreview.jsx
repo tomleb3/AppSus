@@ -9,7 +9,7 @@ export class KeepPreview extends React.Component {
         switch (this.props.note.type) {
             case 'NoteTxt':
                 return <div><textarea className="transparent-input" placeholder="What's on your mind..."
-                    name="txt" onChange={this.handleInputChange}>{this.props.note.info.txt}</textarea></div>
+                    name="txt" value={this.props.note.info.txt} onChange={this.handleInputChange}></textarea></div>
 
             case 'NoteImg':
                 if (this.props.note.info.url)

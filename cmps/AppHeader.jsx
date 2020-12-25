@@ -14,12 +14,12 @@ export function AppHeader() {
         <input id="menu-checkbox" className="display-none" type="checkbox"></input>
         <div className="menu flex display-none j-around">
             <section className="flex j-around a-center col">
-                <button>Keep</button>
-                <button>Books</button>
+                <NavLink to="/keep-app"><button className="btn-keep"></button></NavLink>
+                <NavLink to="/email-app"><button className="btn-email"></button></NavLink>
             </section>
             <section className="flex j-around a-center col">
-                <button>Email</button>
-                <button>About</button>
+                <NavLink to="/book-app"><button className="btn-book"></button></NavLink>
+                <NavLink to="/about"><button className="btn-about"></button></NavLink>
             </section>
         </div>
     </header>

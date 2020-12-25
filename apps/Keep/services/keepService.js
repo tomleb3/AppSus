@@ -51,7 +51,9 @@ function _createNote() {
       createdAt: Date.now(),
       info: {
          title: "",
-         txt: ""
+         txt: "",
+         url: '',
+         items: []
       },
       style: {
          bgc: utilService.randomColor()
@@ -96,16 +98,16 @@ function _getDemoNotes() {
    },
    {
       id: 'demo_id_3',
-      type: "NoteTodos",
+      type: "NoteList",
       isPinned: true,
       createdAt: Date.now(),
       info: {
          title: "What to buy:",
          items: [
-            { txt: "Milk", isChecked: true, doneAt: null },
-            { txt: "Bread", isChecked: false, doneAt: 187111111 },
-            { txt: "Cheese", isChecked: true, doneAt: 187111111 },
-            { txt: "Eggs", isChecked: false, doneAt: null }
+            { txt: "Milk", isChecked: true },
+            { txt: "Bread", isChecked: false },
+            { txt: "Cheese", isChecked: true },
+            { txt: "Eggs", isChecked: false }
          ]
       },
       style: {

@@ -18,9 +18,14 @@
 }
 
 .keep-preview img {
-   max-width: 220px;
+   max-width: 250px;
    height: 220px;
    object-fit: cover;
+}
+
+.keep-preview iframe {
+   max-width: 260px;
+   height: 250px;
 }
 
 .keep-preview textarea {
@@ -41,11 +46,11 @@
    width: 100%;
 }
 
-.keep-preview .btn-actions {
+.keep-preview .btn-actions, .keep-preview .btn-actions+p {
    visibility: hidden;
 }
 
-.keep-preview:hover .btn-actions {
+.keep-preview:hover .btn-actions, .keep-preview:hover .btn-actions+p {
    visibility: visible;
 }
 
@@ -92,7 +97,7 @@
 }
 
 .keep-preview input[name=title] {
-   font-size: 1.5rem;
+   font-size: 1.25rem;
    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 
@@ -106,7 +111,6 @@
    background-size: contain;
    height: 15px;
    width: 15px;
-float: right;
 }
 
 .keep-preview .add-container button {

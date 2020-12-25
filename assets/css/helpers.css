@@ -16,12 +16,20 @@
     flex-direction: column;
 }
 
-.flex.start {
+.flex.j-start {
     justify-content: flex-start;
 }
 
-.flex.end {
+.flex.j-end {
     justify-content: flex-end;
+}
+
+.flex.a-start {
+    align-items: flex-start;
+}
+
+.flex.a-end {
+    align-items: flex-end;
 }
 
 .flex.j-center {
@@ -50,20 +58,22 @@
     display: grid;
 }
 
+/* FLOAT */
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
 /* TRANSPARENT-INPUT */
 
 .transparent-input {
     background-color: inherit;
     border: none;
     outline: none;
-}
-
-.transparent-input:focus {
-    /* background-color: rgba(255, 255, 255, 0.6); */
-}
-
-.transparent-input::placeholder {
-    /* color: black; */
 }
 
 /* OTHERS */
@@ -73,7 +83,7 @@
 }
 
 .muted {
-    font-size: 0.7rem;
+    font-size: 0.7em;
     opacity: 0.5;
 }
 

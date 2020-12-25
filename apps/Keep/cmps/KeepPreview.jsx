@@ -2,6 +2,8 @@ import { utilService } from "../../../services/utilService.js"
 const { Link } = ReactRouterDOM;
 
 export class KeepPreview extends React.Component {
+    refUrl = React.createRef()
+
     dynamicNote = () => {
         switch (this.props.note.type) {
             case 'NoteTxt':
@@ -11,23 +13,30 @@ export class KeepPreview extends React.Component {
                 if (this.props.note.info.url)
                     return <div><img src={this.props.note.info.url}></img></div>
                 else {
-                    return <div className="flex j-center">
-                        <input className="transparent-input" type="text" placeholder="URL?" onChange={this.handleInputChange}></input>
-                    </div>
+                    return <form className="flex col j-between" onSubmit={this.onSetUrl}>
+                        <input className="transparent-input" type="text" placeholder="URL?" onChange={this.handleInputChange} ref={this.refUrl}></input>
+                        <button type="submit">Save</button>
+                    </form>
                 }
             case 'NoteTodos':
-                this.sortTodosByChecked()
+                this.sortListItems()
                 // let pinnedCount = 0;
-                return this.props.note.info.todos.map(todo => {
+                return this.props.note.info.items.map(item => {
                     // if (todo.isChecked) pinnedCount++
-                    
+
                     return <aside className="todo-container" key={utilService.makeId()}>
-                        <input type="checkbox" onClick={() => this.onTodoToggle(todo)} onChange={this.handleInputChange} checked={todo.isChecked} key={utilService.makeId()}></input>
-                        <h4 key={utilService.makeId()}>{todo.txt}</h4>
+                        <input type="checkbox" onClick={() => this.onListItemToggle(item)} onChange={this.handleInputChange} checked={item.isChecked} key={utilService.makeId()}></input>
+                        <h4 key={utilService.makeId()}>{item.txt}</h4>
                     </aside>
                 })
             case 'NoteVideo':
-                return <div>video</div>
+                if (this.props.note.info.url)
+                    return <iframe src={this.props.note.info.url}></iframe>
+                else
+                    return <form className="flex col j-between" onSubmit={this.onSetUrl}>
+                        <input className="transparent-input" type="text" placeholder="URL?" onChange={this.handleInputChange} ref={this.refUrl}></input>
+                        <button type="submit">Save</button>
+                    </form>
         }
         return <div className="add-container">
             <section className="flex j-around a-center col">
@@ -41,13 +50,14 @@ export class KeepPreview extends React.Component {
         </div>
     }
 
-    onTodoToggle = (todo) => {
+    onListItemToggle = (todo) => {
         todo.isChecked = !todo.isChecked
         this.setState({})
     }
 
-    sortTodosByChecked = () => {
-        this.props.note.info.todos.sort(function (a, b) { return a.isChecked - b.isChecked })
+    sortListItems = () => {
+        this.props.note.info.items.sort((a, b) => a.txt.toLowerCase().localeCompare(b.txt.toLowerCase())) // by name
+        this.props.note.info.items.sort(function (a, b) { return a.isChecked - b.isChecked }) // by chacked
     }
 
     onPinnedToggle = () => {
@@ -61,8 +71,16 @@ export class KeepPreview extends React.Component {
         this.setState({})
     }
 
+    onSetUrl = () => {
+        let url = this.refUrl.current.value
+        if (url.includes('youtube.com') && url.includes('watch?v='))
+            url = url.replace('watch?v=', 'embed/')
+        this.props.note.info.url = url
+        this.props.saveNotes()
+        this.setState({})
+    }
+
     onColorChange = (ev) => {
-        console.log(ev.target.value)
         this.props.note.style.bgc = ev.target.value
         this.props.saveNotes()
         this.setState({})
@@ -79,7 +97,7 @@ export class KeepPreview extends React.Component {
     }
 
     render() {
-        const {note} = this.props
+        const { note } = this.props
 
         return (
             <article style={{ backgroundColor: note.style.bgc }} className="keep-preview">

@@ -1,5 +1,7 @@
 @import "./basics/basics.css";
 @import "./helpers.css";
+@import "./cmps/Home.css";
+@import "./cmps/About.css";
 @import "./cmps/AppHeader.css";
 
 /* KEEP */

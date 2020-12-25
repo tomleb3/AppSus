@@ -101,11 +101,11 @@ function _getDemoNotes() {
       createdAt: Date.now(),
       info: {
          title: "What to buy:",
-         todos: [
-            { txt: "Milk", isChecked: true, createAt: null },
-            { txt: "Bread", isChecked: false, createAt: 187111111 },
-            { txt: "Cheese", isChecked: true, createAt: 187111111 },
-            { txt: "Eggs", isChecked: false, createAt: null }
+         items: [
+            { txt: "Milk", isChecked: true, doneAt: null },
+            { txt: "Bread", isChecked: false, doneAt: 187111111 },
+            { txt: "Cheese", isChecked: true, doneAt: 187111111 },
+            { txt: "Eggs", isChecked: false, doneAt: null }
          ]
       },
       style: {

@@ -1,13 +1,3 @@
-export class Home extends React.Component {
-    state = {
-
-    }
-
-    componentDidMount() {
-
-    }
-
-    render() {
-        return <div>Home</div>
-    }
+export function Home() {
+    return <section className="home">Home</section>
 }

@@ -52,7 +52,9 @@ export class BookApp extends React.Component {
 
     render() {
         return (
-            <main>
+            <main className="book-app">
+                <label className="btn-sidenav display-none" htmlFor="sidenav-checkbox"></label>
+                <input id="sidenav-checkbox" className="display-none" type="checkbox"></input>
                 <BookNav onSaveNotes={this.onSaveNotes} setFilter={this.onSetFilter} onReset={this.onReset}></BookNav>
                 <section className="book-list grid j-center">
                     <BookList books={this.getBooksForDisplay()} onRemove={this.onRemoveBook} />

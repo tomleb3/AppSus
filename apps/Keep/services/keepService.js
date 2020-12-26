@@ -116,18 +116,3 @@ function _getDemoNotes() {
    }];
    return _notes;
 }
-
-
-//
-// {
-//    id: 792,
-//    type: "NoteVideo",
-//    isPinned: false,
-//    info: {
-//       url: "http://some-img/me",
-//       title: "Im a Video"
-//    },
-//    style: {
-//       bgc: "#f6f6f6"
-//    }
-// }

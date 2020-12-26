@@ -21,9 +21,9 @@
 /* BOOKS */
 
 @import "../../apps/Books/assets/css/BookList.css";
+@import "../../apps/Books/assets/css/BookNav.css";
 @import "../../apps/Books/assets/css/BookPreview.css";
 @import "../../apps/Books/assets/css/BookDetails.css";
-@import "../../apps/Books/assets/css/BookFilter.css";
 
 /* FONTS */
 

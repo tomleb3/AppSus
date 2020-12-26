@@ -1,7 +1,7 @@
 import { bookService } from './services/bookService.js'
-import { storageService } from './services/storageService.js'
+import { googleBookService } from './services/googleBookService.js'
 import { BookList } from './cmps/BookList.jsx'
-import { BookFilter } from './cmps/BookFilter.jsx'
+import { BookNav } from './cmps/BookNav.jsx'
 
 export class BookApp extends React.Component {
     state = {
@@ -17,15 +17,20 @@ export class BookApp extends React.Component {
     }
 
     loadBooks = () => {
-        bookService.getBooks()
+        bookService.query()
             .then(books => {
-                console.log(books)
                 this.setState({ books })
             })
     }
 
+    onSaveBooks = () => {
+        bookService.saveBooksToStorage()
+        this.setState({})
+    }
+
     onRemoveBook = (bookId) => {
         bookService.remove(bookId)
+        this.onSaveBooks()
         this.loadBooks()
     }
 
@@ -36,19 +41,19 @@ export class BookApp extends React.Component {
     getBooksForDisplay = () => {
         const { filterBy } = this.state
         return this.state.books.filter(book => {
-            return book.volumeInfo.title.toLowerCase().includes(filterBy.title.toLowerCase())
+            return book.title.toLowerCase().includes(filterBy.title.toLowerCase())
         })
+    }
+
+    onReset = () => {
+        bookService.clearBookStorage()
+        location.reload()
     }
 
     render() {
         return (
             <main>
-                <div className="top-container flex j-between">
-                    <div>
-                        <BookFilter setFilter={this.onSetFilter} />
-                    </div>
-                    <button onClick={storageService.clear()}>Remove All</button>
-                </div>
+                <BookNav onSaveNotes={this.onSaveNotes} setFilter={this.onSetFilter} onReset={this.onReset}></BookNav>
                 <section className="book-list grid j-center">
                     <BookList books={this.getBooksForDisplay()} onRemove={this.onRemoveBook} />
                 </section>

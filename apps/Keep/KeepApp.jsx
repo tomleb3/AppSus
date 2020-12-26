@@ -26,7 +26,7 @@ export class KeepApp extends React.Component {
         this.setState({ filterBy });
     }
 
-    saveNotes = () => {
+    onSaveNotes = () => {
         keepService.saveNotesToStorage()
         this.setState({})
     }
@@ -57,9 +57,9 @@ export class KeepApp extends React.Component {
             <article className="keep-app">
                 <label className="btn-sidenav display-none" htmlFor="sidenav-checkbox"></label>
                 <input id="sidenav-checkbox" className="display-none" type="checkbox"></input>
-                <KeepNav onSetFilter={this.onSetFilter} onClearAll={this.onReset}></KeepNav>
+                <KeepNav onSetFilter={this.onSetFilter} onReset={this.onReset}></KeepNav>
                 <section className="keep-list grid j-center">
-                    <KeepList notes={this.notesForDisplay} saveNotes={this.saveNotes} onRemove={this.onRemoveNote} />
+                    <KeepList notes={this.notesForDisplay} onSaveNotes={this.onSaveNotes} onRemove={this.onRemoveNote} />
                 </section>
                 <button className="btn-plus" onClick={this.onAddNote}></button>
             </article>

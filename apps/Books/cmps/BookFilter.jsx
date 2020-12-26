@@ -12,7 +12,7 @@ export class BookFilter extends React.Component {
     render() {
         return <input type="text" name="name"
             value={this.state.title}
-            placeholder="Search"
+            placeholder="..."
             onChange={this.handleChange} />
     }
 }

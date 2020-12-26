@@ -12,6 +12,7 @@
 
 .book-preview h1 {
     text-transform: capitalize;
+    font-size: 1.5em;
 }
 
 .book-preview img {

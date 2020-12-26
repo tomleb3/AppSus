@@ -25,7 +25,7 @@
    .keep-app .btn-sidenav {
       display: block;
    }
-   #sidenav-checkbox:checked+.keep-nav {
+   .keep-app #sidenav-checkbox:checked+.keep-nav {
       display: flex;
    }
 }

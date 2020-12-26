@@ -62,17 +62,17 @@ export class KeepPreview extends React.Component {
     onAddListItem = () => {
         this.props.note.info.items.push({ txt: this.refListItem.current.value, isChecked: false })
         this.refListItem.current.value = ''
-        this.props.saveNotes()
+        this.props.onSaveNotes()
     }
 
     onPinnedToggle = () => {
         this.props.note.isPinned = !this.props.note.isPinned
-        this.props.saveNotes()
+        this.props.onSaveNotes()
     }
 
     onSetType = (type) => {
         this.props.note.type = type
-        // this.props.saveNotes()
+        // this.props.onSaveNotes()
         this.setState({})
     }
 
@@ -81,12 +81,12 @@ export class KeepPreview extends React.Component {
         if (url.includes('youtube.com/watch?v='))
             url = url.replace('watch?v=', 'embed/')
         this.props.note.info.url = url
-        this.props.saveNotes()
+        this.props.onSaveNotes()
     }
 
     onColorChange = (ev) => {
         this.props.note.style.bgc = ev.target.value
-        this.props.saveNotes()
+        this.props.onSaveNotes()
     }
 
     handleInputChange = (ev, idx) => {
@@ -94,7 +94,7 @@ export class KeepPreview extends React.Component {
             this.props.note.info.items[idx].txt = ev.target.value
         else
             this.props.note.info[ev.target.name] = ev.target.value
-        this.props.saveNotes()
+        this.props.onSaveNotes()
     }
 
     componentDidMount() {

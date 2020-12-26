@@ -97,10 +97,6 @@ export class KeepPreview extends React.Component {
         this.props.onSaveNotes()
     }
 
-    componentDidMount() {
-        console.log(this.props)
-    }
-
     render() {
         const { note } = this.props
 
@@ -132,6 +128,5 @@ export class KeepPreview extends React.Component {
                     &nbsp;{new Date(note.createdAt).toLocaleDateString("en-US")}</p>
             </article>
         )
-        {/* <Link to={`/email/${email.id}`}></Link> */ }
     }
 }

@@ -5,13 +5,25 @@ import { KeepNav } from "./cmps/KeepNav.jsx"
 export class KeepApp extends React.Component {
 
     state = {
-        notes: []
+        notes: [],
+        filterBy: ''
     }
 
     loadNotes = () => {
         keepService.query().then(notes => {
             this.setState({ notes })
         })
+    }
+
+    get notesForDisplay() {
+        const { filterBy } = this.state;
+        return this.state.notes.filter(note => {
+            return note.type.includes(filterBy);
+        });
+    }
+
+    onSetFilter = (filterBy) => {
+        this.setState({ filterBy });
     }
 
     saveNotes = () => {
@@ -21,7 +33,7 @@ export class KeepApp extends React.Component {
 
     onAddNote = () => {
         keepService.addNote().then(() => {
-            this.loadNotes()
+            this.setState({ filterBy: '' })
         })
     }
 
@@ -31,7 +43,7 @@ export class KeepApp extends React.Component {
         })
     }
 
-    onClearAll = () => {
+    onReset = () => {
         keepService.clearKeepStorage()
         location.reload()
     }
@@ -43,11 +55,12 @@ export class KeepApp extends React.Component {
     render() {
         return (
             <article className="keep-app">
-                <KeepNav></KeepNav>
+                <label className="btn-sidenav display-none" htmlFor="sidenav-checkbox"></label>
+                <input id="sidenav-checkbox" className="display-none" type="checkbox"></input>
+                <KeepNav onSetFilter={this.onSetFilter} onClearAll={this.onReset}></KeepNav>
                 <section className="keep-list grid j-center">
-                    <KeepList notes={this.state.notes} saveNotes={this.saveNotes} onRemove={this.onRemoveNote} />
+                    <KeepList notes={this.notesForDisplay} saveNotes={this.saveNotes} onRemove={this.onRemoveNote} />
                 </section>
-                <button className="btn-clear-all" onClick={this.onClearAll}>Clear All</button>
                 <button className="btn-plus" onClick={this.onAddNote}></button>
             </article>
         )

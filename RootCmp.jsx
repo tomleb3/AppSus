@@ -4,9 +4,10 @@ import { About } from "./pages/About.jsx"
 import { AppHeader } from "./cmps/AppHeader.jsx"
 // Mail
 import { EmailApp } from "./apps/Mail/EmailApp.jsx"
-import { EmailCompose } from "./apps/Mail/cmps/EmailCompose.jsx" 
+import { EmailCompose } from "./apps/Mail/cmps/EmailCompose.jsx"
 // Keep
 import { KeepApp } from "./apps/Keep/KeepApp.jsx"
+import { KeepNav } from "./apps/Keep/cmps/KeepNav.jsx"
 //Books
 import { BookApp } from "./apps/Books/BookApp.jsx"
 

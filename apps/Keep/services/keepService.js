@@ -72,7 +72,7 @@ function _createNotes() {
 function _getDemoNotes() {
    const _notes = [{
       id: 'demo_id_1',
-      type: "NoteTxt",
+      type: "text",
       isPinned: false,
       createdAt: Date.now(),
       info: {
@@ -85,7 +85,7 @@ function _getDemoNotes() {
    },
    {
       id: 'demo_id_2',
-      type: "NoteImg",
+      type: "image",
       isPinned: true,
       createdAt: Date.now(),
       info: {
@@ -98,7 +98,7 @@ function _getDemoNotes() {
    },
    {
       id: 'demo_id_3',
-      type: "NoteList",
+      type: "list",
       isPinned: true,
       createdAt: Date.now(),
       info: {

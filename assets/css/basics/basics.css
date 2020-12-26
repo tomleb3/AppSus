@@ -1,16 +1,14 @@
 * {
    margin: 0;
    box-sizing: border-box;
+   font-family: SourceSans-regular;
 }
 
 html {
    scroll-behavior: smooth;
 }
 
-body {
-   font-family: SourceSans-regular;
-   font-weight: 500;
-}
+body {}
 
 button {
    border: none;

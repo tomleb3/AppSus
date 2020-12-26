@@ -1,5 +1,4 @@
 import { utilService } from "../../../services/utilService.js"
-const { Link } = ReactRouterDOM;
 
 export class KeepPreview extends React.Component {
     refUrl = React.createRef()
@@ -7,11 +6,11 @@ export class KeepPreview extends React.Component {
 
     dynamicNote = () => {
         switch (this.props.note.type) {
-            case 'NoteTxt':
+            case 'text':
                 return <div><textarea className="transparent-input" placeholder="What's on your mind..."
                     name="txt" value={this.props.note.info.txt} onChange={this.handleInputChange}></textarea></div>
 
-            case 'NoteImg':
+            case 'image':
                 if (this.props.note.info.url)
                     return <div><img src={this.props.note.info.url}></img></div>
                 else {
@@ -21,23 +20,16 @@ export class KeepPreview extends React.Component {
                     </form>
                 }
 
-            case 'NoteList':
-                if (this.props.note.info.items && this.props.note.info.items.length) {
-                    this.sortListItems()
-                    return this.props.note.info.items.map((item, idx) => {
-                        return <aside className="list-container flex a-start" key={utilService.makeId()}>
-                            <input type="checkbox" onClick={() => this.onListItemToggle(item)} onChange={this.handleInputChange} checked={item.isChecked} key={utilService.makeId()}></input>
-                            <input className="transparent-input" type="text" placeholder="List item" name="list-item" value={item.txt} onChange={(ev) => this.handleInputChange(ev, idx)} key={utilService.makeId()}></input>
-                        </aside>
-                    })
-                }
-                else
-                    return <div className="flex a-start">
-                        <button className="add-item-btn" onClick={this.onAddListItem}>+</button>
-                        <input className="transparent-input" type="text" placeholder="List item" ref={this.refListItem} onChange={this.handleInputChange}></input>
-                    </div>
+            case 'list':
+                this.sortListItems()
+                return this.props.note.info.items.map((item, idx) => {
+                    return <aside className="list-container flex a-start" key={utilService.makeId()}>
+                        <input type="checkbox" onClick={() => this.onListItemToggle(item)} onChange={this.handleInputChange} checked={item.isChecked} key={utilService.makeId()}></input>
+                        <input className="transparent-input" type="text" placeholder="List item" name="list-item" value={item.txt} onChange={(ev) => this.handleInputChange(ev, idx)} key={utilService.makeId()}></input>
+                    </aside>
+                })
 
-            case 'NoteVideo':
+            case 'video':
                 if (this.props.note.info.url)
                     return <iframe src={this.props.note.info.url}></iframe>
                 else
@@ -48,12 +40,12 @@ export class KeepPreview extends React.Component {
         }
         return <div className="add-container flex">
             <section className="flex j-around a-center col">
-                <button key={utilService.makeId()} onClick={() => this.onSetType('NoteTxt')}></button>
-                <button key={utilService.makeId()} onClick={() => this.onSetType('NoteImg')}></button>
+                <button key={utilService.makeId()} onClick={() => this.onSetType('text')}></button>
+                <button key={utilService.makeId()} onClick={() => this.onSetType('image')}></button>
             </section>
             <aside className="flex j-around a-center col">
-                <button key={utilService.makeId()} onClick={() => this.onSetType('NoteList')}></button>
-                <button key={utilService.makeId()} onClick={() => this.onSetType('NoteVideo')}></button>
+                <button key={utilService.makeId()} onClick={() => this.onSetType('list')}></button>
+                <button key={utilService.makeId()} onClick={() => this.onSetType('video')}></button>
             </aside>
         </div>
     }
@@ -68,8 +60,8 @@ export class KeepPreview extends React.Component {
     }
 
     onAddListItem = () => {
-        console.log(this.props.note.info)
         this.props.note.info.items.push({ txt: this.refListItem.current.value, isChecked: false })
+        this.refListItem.current.value = ''
         this.props.saveNotes()
     }
 
@@ -80,6 +72,7 @@ export class KeepPreview extends React.Component {
 
     onSetType = (type) => {
         this.props.note.type = type
+        // this.props.saveNotes()
         this.setState({})
     }
 
@@ -112,12 +105,20 @@ export class KeepPreview extends React.Component {
         const { note } = this.props
 
         return (
-            <article style={{ backgroundColor: note.style.bgc }} className="keep-preview">
+            <article style={{ backgroundColor: note.style.bgc }} className="keep-preview flex col">
                 <button className={note.isPinned ? "top-pin" : "display-none"} onClick={this.onPinnedToggle}></button>
                 <input className="transparent-input" name="title" type="text" placeholder="Title.."
                     value={note.info.title} onChange={this.handleInputChange}></input>
 
                 {this.dynamicNote()}
+
+                { (() => {
+                    if (note.type === 'list')
+                        return <div className="flex a-start">
+                            <button className="btn-add-item" onClick={this.onAddListItem}>+</button>
+                            <input className="transparent-input" type="text" placeholder="List item" name="add-list-item" ref={this.refListItem} onChange={this.handleInputChange}></input>
+                        </div>
+                })()}
 
                 <section className="btn-actions flex j-around">
                     <button className={note.isPinned ? "pinned" : "not-pinned"} onClick={this.onPinnedToggle}></button>

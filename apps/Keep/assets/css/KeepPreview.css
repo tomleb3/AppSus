@@ -1,7 +1,5 @@
 .keep-preview {
-   flex-direction: column;
    background-color: rgb(105, 194, 54);
-   display: flex;
    padding: 15px;
    min-height: 420px;
    border-radius: 5px;
@@ -87,18 +85,18 @@
 }
 
 .keep-preview .list-container {
-   flex-grow: 1;
-   margin: 10px;
+   margin: 8px;
 }
 
 .keep-preview aside button {
    margin-inline-end: 10px;
 }
 
-.keep-preview .add-item-btn {
+.keep-preview .btn-add-item {
    height: 15px;
    width: 15px;
    padding: 0;
+   font-weight: 600;
    font-size: 1.25em;
    background-color: inherit;
 }
@@ -118,6 +116,10 @@
 .keep-preview input[name=list-item] {
    font-size: 1rem;
    font-weight: bolder;
+}
+
+.keep-preview input[name=add-list-item] {
+   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .keep-preview input[placeholder="URL?"] {

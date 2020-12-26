@@ -3,6 +3,7 @@ import { utilService } from "../../../services/utilService.js"
 export class KeepPreview extends React.Component {
     refUrl = React.createRef()
     refListItem = React.createRef()
+    refNote = React.createRef()
 
     dynamicNote = () => {
         switch (this.props.note.type) {
@@ -97,11 +98,19 @@ export class KeepPreview extends React.Component {
         this.props.onSaveNotes()
     }
 
+    scrollToBottom = () => {
+        this.refNote.current.scrollIntoView()
+    }
+
+    componentDidUpdate() {
+        this.scrollToBottom()
+    }
+
     render() {
         const { note } = this.props
 
         return (
-            <article style={{ backgroundColor: note.style.bgc }} className="keep-preview flex col">
+            <article style={{ backgroundColor: note.style.bgc }} className="keep-preview flex col" ref={this.refNote}>
                 <button className={note.isPinned ? "top-pin" : "display-none"} onClick={this.onPinnedToggle}></button>
                 <input className="transparent-input" name="title" type="text" placeholder="Title.."
                     value={note.info.title} onChange={this.handleInputChange}></input>

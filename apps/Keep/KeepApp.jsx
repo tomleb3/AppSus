@@ -18,12 +18,12 @@ export class KeepApp extends React.Component {
     get notesForDisplay() {
         const { filterBy } = this.state;
         return this.state.notes.filter(note => {
-            return note.type.includes(filterBy);
+            return note.type.includes(filterBy)
         });
     }
 
     onSetFilter = (filterBy) => {
-        this.setState({ filterBy });
+        this.setState({ filterBy })
     }
 
     onSaveNotes = () => {

@@ -85,7 +85,7 @@
 }
 
 .keep-preview .list-container {
-   margin: 8px;
+   margin: 4px;
 }
 
 .keep-preview aside button {
@@ -127,7 +127,7 @@
 }
 
 .keep-preview input[type=checkbox] {
-   margin-top: 11.5px;
+   margin-top: 15px;
 }
 
 .keep-preview input[type=checkbox]:checked+input {

@@ -110,10 +110,10 @@ export class KeepPreview extends React.Component {
 
                 { (() => {
                     if (note.type === 'list')
-                        return <div className="flex a-start">
-                            <button className="btn-add-item" onClick={this.onAddListItem}>+</button>
+                        return <form className="flex a-start" onSubmit={this.onAddListItem}>
+                            <button className="btn-add-item">+</button>
                             <input className="transparent-input" type="text" placeholder="List item" name="add-list-item" ref={this.refListItem} onChange={this.handleInputChange}></input>
-                        </div>
+                        </form>
                 })()}
 
                 <section className="btn-actions flex j-around">

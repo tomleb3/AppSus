@@ -5,7 +5,7 @@
     display: flex;
     position: fixed;
     z-index: 1;
-    padding-top: 70px;
+    padding-top: 90px;
     font-weight: bolder;
     background-color: white;
 }
@@ -16,7 +16,7 @@
 
 .book-nav button {
     position: absolute;
-    bottom: 30px;
+    bottom: 75px;
     left: 50px;
     padding: 13px 50px;
     background-color: inherit;

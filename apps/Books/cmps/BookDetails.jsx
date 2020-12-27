@@ -1,6 +1,6 @@
-// import { bookService } from '../services/bookService.js'
+import { bookService } from '../services/bookService.js'
 import { apiBookService } from '../services/bookService.js'
-import { LongTxt } from '../cmps/book-app/LongTxt.jsx'
+import { LongTxt } from './LongTxt.jsx'
 import { BookDetailsEmpty } from './BookDetailsEmpty.jsx'
 const { Link } = ReactRouterDOM;
 
@@ -44,7 +44,7 @@ export class BookDetails extends React.Component {
 
     componentDidMount() {
         const { bookId } = this.props.match.params;
-        apiBookService.getBookById(bookId).then(book => {
+        bookService.getBookById(bookId).then(book => {
             this.setState({ book })
             // this.checkLength()
             // this.checkCurrency()

@@ -60,7 +60,8 @@ export class KeepPreview extends React.Component {
         this.props.note.info.items.sort(function (a, b) { return a.isChecked - b.isChecked }) // by chacked
     }
 
-    onAddListItem = () => {
+    onAddListItem = (ev) => {
+        ev.preventDefault()
         this.props.note.info.items.push({ txt: this.refListItem.current.value, isChecked: false })
         this.refListItem.current.value = ''
         this.props.onSaveNotes()

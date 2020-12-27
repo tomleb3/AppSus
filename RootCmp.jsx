@@ -7,9 +7,10 @@ import { EmailApp } from "./apps/Mail/EmailApp.jsx"
 import { EmailCompose } from "./apps/Mail/cmps/EmailCompose.jsx"
 // Keep
 import { KeepApp } from "./apps/Keep/KeepApp.jsx"
-import { KeepNav } from "./apps/Keep/cmps/KeepNav.jsx"
 //Books
 import { BookApp } from "./apps/Books/BookApp.jsx"
+import { BookDetails } from "./apps/Books/cmps/BookDetails.jsx"
+import { BookDetailsEmpty } from "./apps/Books/cmps/BookDetailsEmpty.jsx"
 
 const Router = ReactRouterDOM.HashRouter;
 const { Route, Switch } = ReactRouterDOM;
@@ -20,6 +21,9 @@ export class AppSus extends React.Component {
             <section className="app-sus">
                 <AppHeader />
                 <Switch>
+                    <Route path="/details/:bookId" component={BookDetails} />
+                    <Route path="/details" component={BookDetailsEmpty} />
+                    <Route path="/books" component={BookApp} />
                     <Route path="/email-app/compose" component={EmailCompose} />
                     <Route path="/email-app" component={EmailApp} />
                     <Route path="/keep-app" component={KeepApp} />
